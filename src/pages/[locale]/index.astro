@@ -1,0 +1,14 @@
+---
+import HomePage from "../../components/pages/home";
+import { isLocale } from "../../type/locale";
+const { locale } = Astro.params;
+
+if (!isLocale(locale)) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+---
+
+<HomePage locale={locale} />
